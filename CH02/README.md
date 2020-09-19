@@ -55,3 +55,26 @@ a * n + b * (n * n) + c // this is the key
 ### Analyzing Results
 - Best Case : O (n)
 - Worse Case : O (n2) or O(n * n)
+
+# Selection Sort Analyzing
+Considering following selection sort, `n = arr.length`
+```javascript
+const selectionSort = arr => {
+    // let smallestIndex = findSmallestNumber(arr.slice(0, arr.length))
+    for (let i = 0; i < arr.length - 1; i++) { // c1 * n
+        let smallest = Number.MAX_SAFE_INTEGER // c2 * (n - 1)
+        let smallestIndex = 0; // c3 * (n - 1)
+        for (let j = i; j < arr.length; j++) { // c4 * n * ( (1 + n) / 2)
+            if (arr[j] < smallest) { // c5 * n * ( (1 + n) / 2)
+                smallest = arr[j]; // best case : 0, worse case: c6 * n * ( (1 + n) / 2)
+                smallestIndex = i; // best case : 0, worse case: c7 * n * ( (1 + n) / 2)
+            }
+        }
+
+        if (smallestIndex > 0) {
+            [arr[i], arr[smallestIndex]] = [arr[smallestIndex], arr[i]];
+        }
+    }
+}
+```
+O(n * n)
