@@ -30,10 +30,28 @@ const insertionSort = arr => {
     }
 }
 ```
+Assuming `n = arr.length`
 Best case the total number of execution cost as following:
 ```javascript
-c1 * (arr.length) + c2 * (arr.length - 1) + c3 * (arr.length - 1) + 1 + c4 * (arr.length - 1) =
-c1 * arr.length + c2 * arr.length - c2 + c3 * arr.length - c3 + 1 + c4 * arr.length - c4 = 
-(c1 + c2 + c3 + c4) * arr.length  - (c2 + c3 + c4)
-
+c1 * n + c2 * (n - 1) + c3 * (n - 1) + 1 + c4 * (n - 1) =
+c1 * n + c2 * n - c2 + c3 * n - c3 + 1 + c4 * n - c4 = 
+(c1 + c2 + c3 + c4) * n - (c2 + c3 + c4) + 1
+// Finally if we replace / simplify all the constants, we get following
+a * n + b
 ```
+
+Worse case the total number of execution cost as following:
+```javascript
+c1 * n + c2 * (n - 1) + c3 * (n - 1) + 1 + c5 * (n * ((1 + n) / 2) - 1) + c6 * (n * ((1 + n) / 2)) + c7 * (n * ((1 + n) / 2)) + c4 * (n - 1) =
+(c1 + c2 + c3 + c4) * n - (c2 + c3 + c4) + 1 + c6 * ((n + n*n) / 2 - 1)  + c7 * ((n + n*n) / 2) = 
+(c1 + c2 + c3 + c4) * n - (c2 + c3 + c4) + 1 + c6 * (1/2) * n + c6 * (1/2) * n * n + c7 * (1/2) * n + c7 * (1/2) * n * n + c5 * (1/2) * n + c5 * (1/2) * n * n = 
+(c1 + c2 + c3 + c4) * n - (c2 + c3 + c4) + 1 + (c6 * (1/2) + c7 * (1/2) + c5 * (1/2)) * n * n  + () * n = 
+
+(c1 + c2 + c3 + c4 + c6 * (1/2) + c7 * (1/2) + c5 * (1/2)) * n + (c6 * (1/2) + c7 * (1/2) + c5 * (1/2)) * n * n - (c2 + c3 + c4) + 1 = 
+// Finally if we replace / simplify all the constants, we get following
+a * n + b * (n * n) + c // this is the key
+```
+
+### Analyzing Results
+- Best Case : O (n)
+- Worse Case : O (n2) or O(n * n)
