@@ -78,3 +78,20 @@ const selectionSort = arr => {
 }
 ```
 O(n * n)
+
+# Linear Search
+Considering following linear search
+```javascript
+const linearSearch = (target, arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (target === arr[i]) {
+            return i;
+        }
+    }
+
+    return null;
+}
+```
+- Average: `arr.length / 2`
+- Worse: `arr.length`
+- Notation: O(n)
