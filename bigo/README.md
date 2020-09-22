@@ -17,6 +17,10 @@ Big O is a notation for measuring the complexity of an algorithm by time and spa
 |O(2^n)|exponential||
 |O(n!)|factorial|slow|
 
+O(log n): how many number 2s multiply together to get to n, classic example is binary search. If in algorithm we see a pattern the N was divided in 2
+in each iteration, then it is a O (log n) 
+
+
 # Cheat Sheet
 - https://www.bigocheatsheet.com/
 - https://cooervo.github.io/Algorithms-DataStructures-BigONotation/
