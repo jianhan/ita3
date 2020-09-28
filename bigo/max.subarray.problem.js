@@ -92,11 +92,7 @@ const solveMaxSubArray = (arr, low, high, meta = "root") => {
 
 }
 
-const input = [1, -100, 2, -1000, 100, 1000, 10000];
+const input = [-1, -2, -3, -4, -10];
 // const input = [1, 2, 3, 4];
 
 console.log(solveMaxSubArray(input, 0, input.length - 1))
-// console.log(solveMaxSubArray(input, 2, 3))
-
-// console.log("LEFT", findMaxSumCrossMid(input, 0, 0, 1))
-// console.log("RIGHT", findMaxSumCrossMid(input, 2, 2, 3))

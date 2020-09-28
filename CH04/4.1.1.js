@@ -1,0 +1,1 @@
+// when all numbers are negative, max sub array algorithm will return the max number within the array
